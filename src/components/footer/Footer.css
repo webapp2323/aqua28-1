@@ -1,0 +1,12 @@
+.footer {
+    padding: 10px 10px;
+    background-color: rgb(57, 128, 254);
+    height: auto;
+}
+
+.footer_row {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -68,3 +68,41 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## (Run JavaScript Everywhere)[https://nodejs.org/en}
+# PS D:\ReactProjects-190324\aqua-react-ide-25> node -v
+v20.13.1
+
+## ()[]
+PS D:\ReactProjects-190324\aqua-react-ide-25> npm -v
+10.6.0
+
+# (подключение шрифтов)[https://fonts.google.com/selection/embed]
+[https://www.youtube.com/watch?v=j3gplcXZLNU]
+
+# (React Bootstrap)[https://react-bootstrap.netlify.app/docs/getting-started/introduction/]
+npm install react-bootstrap bootstrap
+
+# PS D:\ReactProjects-190324\aqua-react-ide-25> npm install react-router-dom
+
+npm install @react-oauth/google
+
+npm start
+
+
+https://blog.logrocket.com/guide-adding-google-login-react-app/
+
+https://accounts.google.com/gsi/select?client_id=835594044316-lr5gv12oodkoj6ij6cvn6s4rslhmrdlk.apps.googleusercontent.com&ux_mode=popup&ui_mode=card&as=nBohxbYr6N7zj4TJXJkdIw&channel_id=02bbb4a39ddc8ebba8d74d5312be1375c5d80c759fab6660614616d955707b2f&origin=http%3A%2F%2Flocalhost%3A3000
+
+https://joegasewicz.github.io/react-google-oauth2.0/
+
+
+https://blog.logrocket.com/guide-adding-google-login-react-app/
+
+https://www.baeldung.com/spring-boot-react-crudhttps://blog.logrocket.com/building-react-modal-module-with-react-router/
+
+(Публикация на Heroku. Spring Boot Rest)[https://www.youtube.com/watch?v=q7e4A9pfNrk]
+
+
+

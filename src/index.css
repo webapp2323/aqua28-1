@@ -1,13 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #2C2C32;
+  --color-active: #2C2C32;
+}
+
 body {
   margin: 0;
+  padding: 10px 10px;
+  font-size: 25px;
+  text-align-all: justify;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+footer {
+  padding: 10px 10px;
+  background-color: rgb(57, 128, 254);
+  height: auto;
+  text-align: center;
+  font-size: 25px;
+  /*background-color: var(--color-bg);*/
+  /*padding: 2rem 0;*/
+  /*text-align: center;*/
+  /*color: white;*/
+}
+
+/*footer > a {*/
+/*  color: white;*/
+/*  text-decoration: none;*/
+/*  padding: 0 1rem;*/
+/*}*/
+/*footer > a:hover {*/
+/*  text-decoration: underline;*/
+/*}*/
+
+header {
+  background-color: var(--color-bg);
+  padding: 2rem 0;
+  text-align: center;
+/*}*/
+/*header > a {*/
+/*  color: white;*/
+/*  text-decoration: none;*/
+/*  padding: 0 1rem;*/
+}
+
+/*header > a:hover {*/
+/*  text-decoration: underline;*/
+/*}*/
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.container {
+  /*max-width: 900px;*/
+  /*!*padding-left: 1rem;*!*/
+  /*!*padding-right: 2rem;*!*/
+  /*!*margin: 0 auto;*!*/
+  /*justify-content: space-between;*/
+
+}
+
+main {
+  min-height: calc(100vh - 85px - 22px);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 13px;
+
+}
+
+main a {
+  text-decoration: none;
+  color: var(--color-bg);
+}
+main a:hover {
+  text-decoration: underline;
+}
+
+.active-link {
+  color: var(--color-active);
+  cursor: default;
+}
+
+.header_nav {
+  column-gap: 13px;
+  /*display: flex;*/
+
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1px;
+  margin-left: 50px;
+
+
+}
+
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 0;
+  position: relative;
+}
+
+
+.grid-item {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  transition: transform 1s ease-in-out;
+  cursor: pointer;
+}
+
+.grid-item:hover {
+  transform: scale(1.05) translateY(-25px);
+  box-shadow: -1px 1px 3px #c6c6c6;
+  text-shadow: -1px 1px 3px #c6c6c6;
+  cursor: pointer;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: calc(50% + 100px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  text-align: center;
+}
+
+.overlay h4 {
+  color: #333;
+  font-size: 1.3rem;
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.overlay h4:hover {
+  color: blue;
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Stage 9: Creating styles for elements with class social-icon and its subclasses */
+.social-icon {
+  /*background-image: url("../img/googl-fasebook.webp");*/
+  width: 3rem;
+  height: 3rem;
+  background-position: -14.6rem -0.4rem;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Stage 10: Creating styles for the element with class social-icon-googl and its pseudo-classes */
+.social-icon-googl {
+  background-position: -14.6rem -0.4rem;
+  background-image: url("./img/googl-fasebook.webp");
+}
+
+.social-icon-googl:hover {
+  background-position: -14.6rem 3.2rem;
+}
+
+/* Stage 11: Creating styles for the element with class social-icon-facebook and its pseudo-classes */
+.social-icon-facebook {
+  background-position: -3.9rem -0.4rem;
+  background-image: url("./img/googl-fasebook.webp");
+}
+
+.social-icon-facebook:hover {
+  background-position: -3.9rem -3.95rem;
+}
+
+.font-size-increase {
+  font-size: 1.2em; /* Increase the font size by a factor of 2 */
 }
