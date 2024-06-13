@@ -68,3 +68,94 @@ img.thumbnail {
   color: #f00;
   padding-left: 23px;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-right: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-link:hover {
+  color: #666;
+}
+
+.thumbnail {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+/* Загальні стилі для сторінки */
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.modal .fade {
+  background: #f0f0f0;
+  width: 650px;
+  height: 700px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.144);
+
+  /* Центрування модального вікна */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*!* modal-dialog-centered *!*/
+/*.modal-dialog-centered {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  min-height: calc(100% - 1rem);*/
+/*}*/
+
+/*.modal-dialog-centered::before {*/
+/*  display: block;*/
+/*  height: calc(100vh - 1rem);*/
+/*  content: "";*/
+/*}*/
+
+/*!* modal-lg *!*/
+/*.modal-lg,*/
+/*.modal-xl {*/
+/*  max-width: 1600px;*/
+/*}*/
+
+
+
+/*@media (min-width: 1200px) {*/
+/*  .modal-lg {*/
+/*    max-width: 2280px;*/
+/*  }*/
+/*}*/
