@@ -28,7 +28,7 @@ export const Main = () => {
             </div>
 
             <div className="nav-item">
-              <a className="nav-link" href="/">Головна сторінка</a>
+              <a className="nav-link" href="/main">Таблиця замовлень</a>
             </div>
             <div className="nav-item">
               <a className="nav-link" href="#" onClick={openModal}>
