@@ -4,7 +4,10 @@ import "./Main.css";
 
 export const Main = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 200,
+      behavior: 'smooth'
+    });
   }, []);
 
   const [modalInfoIsOpen, setModalInfoOpen] = useState(false);
@@ -14,23 +17,29 @@ export const Main = () => {
   };
 
   return (
-      <div className="col-auto">
+      <div className="col-auto ">
+        <h1>Замов доставку питної води натиснувши <add style={{color: 'grey'}}>Add</add></h1>
         <nav className="navbar">
-          <div className="navbar-nav">
+
+        <div className="navbar-nav">
+
             <div className="nav-item">
               <img className="thumbnail" id="avatar" src=""/>
             </div>
+
             <div className="nav-item">
               <a className="nav-link" href="/">Home</a>
             </div>
             <div className="nav-item">
-              <a className="nav-link" href="#" onClick={openModal}>Add</a>
+              <a className="nav-link" href="#" onClick={openModal}>
+                <add style={{color: 'grey', fontWeight: 'bold'}}>Add</add>
+              </a>
+            </div>
+          <div className="nav-item">
+          <a className="nav-link" href="#" id="deleteButton">Delete</a>
             </div>
             <div className="nav-item">
-              <a className="nav-link" href="#" id="deleteButton">Delete</a>
-            </div>
-            <div className="nav-item">
-              <a className="nav-link" href="/logout">Logout</a>
+              <a className="nav-link" href="/signUp">Logout</a>
             </div>
           </div>
           <span className="navbar-text">
@@ -71,34 +80,34 @@ export const Main = () => {
             <div className="modal-dialog modal-dialog-centered modal-lg">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h4 className="modal-title">Enter new task</h4>
+                  <h4 className="modal-title">Створи нову заявку доставки птної води</h4>
                 </div>
                 <div className="modal-body">
                   <table>
                     <tbody>
                     <tr>
                       <td>
-                        Delivery Date: <input type="datetime-local" id="deliveryDate"/>
+                        Дата доставки: <input type="datetime-local" id="deliveryDate"/>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        Address: <input type="area" id="address" placeholder="address"/>
+                        Адреса: <input type="area" id="address" placeholder="address"/>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        Phone number: <input type="text" id="phone" placeholder="phone"/>
+                        Контактний телефон: <input type="text" id="phone" placeholder="phone"/>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        Quantity: <input type="text" id="quantity" onChange="calculatePrice()" placeholder="quantity"/>
+                        Кількість води: <input type="text" id="quantity" onChange="calculatePrice()" placeholder="quantity"/>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        Price: <input type="text" id="price" disabled></input>
+                        Вартість води з доставкою: <input type="text" id="price" disabled></input>
                       </td>
                     </tr>
                     <tr>
@@ -115,7 +124,7 @@ export const Main = () => {
                     </tr>
                     <tr>
                       <td>
-                        <input type="button" id="submitButton" value="Add"/>
+                        <input type="button" id="submitButton" value="Додати заявку на розгляд компанії щодо виконання замовлення"/>
                       </td>
                     </tr>
                     <tr>
@@ -125,7 +134,7 @@ export const Main = () => {
                   </table>
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-default" onClick={() => setModalInfoOpen(false)}>Close
+                  <button type="button" className="btn btn-default" onClick={() => setModalInfoOpen(false)}>Закрити форму заявки
                   </button>
                 </div>
               </div>

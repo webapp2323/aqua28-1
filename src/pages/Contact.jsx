@@ -3,12 +3,15 @@ import {useEffect} from "react";
 
 const Contact = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 365,
+            behavior: 'smooth'
+        });
     }, []);
 
     return (
         <div>
-            <h2>Наші контакти</h2>
+            <h1>Наші контакти</h1>
             <ul>
                 <li>Компанія "Гармонія Аква Лоґістика".</li>
                 <li>Графік роботи: 10.00-18.00 без вихідних.</li>

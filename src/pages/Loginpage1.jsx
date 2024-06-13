@@ -34,8 +34,9 @@ const Loginpage1 = () => {
 
     return (
         <div>
-            <h1>Вхід оптових клієнтів до сайту компанії "Гармонія Аква Логістика" або перехід до реєстрації нових
-                клієнтів</h1>
+            <h1>Вхід клієнтів компанії "Гармонія Аква Логістика" або
+                <a href="/registration"> реєстрація нових оптових клієнтів </a>
+            </h1>
             <form onSubmit={handleSubmit} style={{fontSize: '1.3em'}}>
                 <table style={{width: '100%'}}>
                     <tr>
@@ -67,9 +68,9 @@ const Loginpage1 = () => {
                     </tr>
                 </table>
             </form>
-            <p style={{fontSize: '1.3em'}}>
-                <a href="/registration">Register new user</a>
-            </p>
+            {/*<p style={{fontSize: '1.3em'}}>*/}
+            {/*    <a href="/registration">Реєстрація нових оптових клієнтів нашої компанії</a>*/}
+            {/*</p>*/}
             {location.search.includes('error') && <p>Wrong login or password!</p>}
             {location.search.includes('logout') && <p>Chao!</p>}
             <button className="btn btn-primary font-size-increase" onClick={handleGoBack}>

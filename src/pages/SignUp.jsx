@@ -54,7 +54,7 @@ const SignUp = () => {
                             {/*</button>*/}
                         </div>
                         <Link to='/login1' className="mb-3">
-                            <h4>або зареєструйся на сайті компанії тут</h4>
+                            <h4>або зайти до сайту залогінившись тут</h4>
                         </Link>
                         <button className="btn btn-primary font-size-increase" onClick={handleGoBack}>
                             Повернутись назад
