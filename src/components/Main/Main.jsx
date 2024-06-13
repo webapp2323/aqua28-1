@@ -28,7 +28,7 @@ export const Main = () => {
             </div>
 
             <div className="nav-item">
-              <a className="nav-link" href="/">Home</a>
+              <a className="nav-link" href="/">Головна сторінка</a>
             </div>
             <div className="nav-item">
               <a className="nav-link" href="#" onClick={openModal}>
@@ -36,10 +36,10 @@ export const Main = () => {
               </a>
             </div>
           <div className="nav-item">
-          <a className="nav-link" href="#" id="deleteButton">Delete</a>
+          <a className="nav-link" href="#" id="deleteButton">Видалити виділене замовлення</a>
             </div>
             <div className="nav-item">
-              <a className="nav-link" href="/signUp">Logout</a>
+              <a className="nav-link" href="/signUp">Повернутись на сторінку реєстрації</a>
             </div>
           </div>
           <span className="navbar-text">
@@ -52,14 +52,14 @@ export const Main = () => {
           <table id="data" className="table table-striped">
             <thead>
             <tr>
-              <th scope="col">Check</th>
-              <th scope="col">Date</th>
-              <th scope="col">Address</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Price</th>
-              <th scope="col">TaskOwner</th>
-              <th scope="col">TaskStatus</th>
+              <th scope="col">Виділити замовлення</th>
+              <th scope="col">Дата доставки</th>
+              <th scope="col">Адреса доставки</th>
+              <th scope="col">Контактний телефон</th>
+              <th scope="col">Кількість води</th>
+              <th scope="col">Вартість замовлення</th>
+              <th scope="col">Хто створив заявку</th>
+              <th scope="col">Статус заявки</th>
             </tr>
             </thead>
             <tbody>
@@ -124,7 +124,7 @@ export const Main = () => {
                     </tr>
                     <tr>
                       <td>
-                        <input type="button" id="submitButton" value="Додати заявку на розгляд компанії щодо виконання замовлення"/>
+                        <input type="button" id="submitButton" value="Надати заявку на розгляд компанії щодо виконання замовлення"/>
                       </td>
                     </tr>
                     <tr>
