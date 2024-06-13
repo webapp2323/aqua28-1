@@ -43,10 +43,9 @@ const SignUp = () => {
             <div className="container py-2 d-flex align-items-center">
                 <div className="d-flex align-items-center mr-auto">
                     <div className="d-flex flex-column">
-                        <h2 className="mb-3">Пройди авторизацію через GOOGLE </h2>
-                        <div className="d-flex align-items-center mb-3">
-                            {/* Кнопки для авторизации через Google и Facebook */}
-                            <GoogleLogin onSuccess={responseMessage} onError={errorMessage} width={200}/>
+                        <h1 className="mb-3">Пройди авторизацію через GOOGLE</h1>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                            <GoogleLogin onSuccess={responseMessage} onError={errorMessage} width={200} />
                             {/*<button*/}
                             {/*    className="social-icon social-icon-facebook"*/}
                             {/*    onClick={handleFacebookLogin}*/}
@@ -54,7 +53,7 @@ const SignUp = () => {
                             {/*    /!*Авторизация через Facebook*!/*/}
                             {/*</button>*/}
                         </div>
-                        <Link to='/main' className="mb-3">
+                        <Link to='/login1' className="mb-3">
                             <h4>або зареєструйся на сайті компанії тут</h4>
                         </Link>
                         <button className="btn btn-primary font-size-increase" onClick={handleGoBack}>

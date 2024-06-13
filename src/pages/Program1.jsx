@@ -2,7 +2,10 @@ import React, {useEffect} from "react";
 
 const Program1 = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 355,
+            behavior: 'smooth'
+        });
     }, []);
     return (
         <div>

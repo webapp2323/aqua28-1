@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hook/useAuth';
 
@@ -6,6 +6,13 @@ const Registration = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { register } = useAuth();
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 450,
+            behavior: 'smooth'
+        });
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,9 +33,8 @@ const Registration = () => {
 
     return (
         <div>
-            <h1>Реєстрація нових клієнтів компанії</h1>
-            <h1>"Гармонія Аква Логістика"</h1>
-
+            <h1 style={{marginBottom: '0.1px'}}>Реєстрація оптових клієнтів компанії</h1>
+            <h1 style={{marginTop: '0.5px'}}>Гармонія Аква Логістика</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     name="login"
@@ -72,7 +78,7 @@ const Registration = () => {
                     <button className="btn btn-secondary font-size-increase" type="reset">
                         Reset
                     </button>
-                    <button className="btn btn-success font-size-increase" type="submit">
+                    <button className="btn btn-success font-size-increase" type="submit" style={{ color:"blue"}}>
                         Submit
                     </button>
                 </div>

@@ -1,6 +1,14 @@
 import promoImg from "../img/product/vo-voter.jpeg";
+import {useEffect} from "react";
 
 const Homepage = () => {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 385,
+            behavior: 'smooth'
+        });
+    }, []);
     return (
         <div>
         <div className='promo_content'>

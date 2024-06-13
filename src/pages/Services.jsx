@@ -9,28 +9,23 @@ import zsy from "../img/svg/zsy.jpeg";
 
 
 
-const Services = () => {
-    const location = useLocation();
 
-    useEffect(() => {
-        const scrollToTop = () => {
+
+    const Services = () => {
+        const location = useLocation();
+
+        useEffect(() => {
             window.scrollTo({
-                top: 0,
+                top: 450,
                 behavior: 'smooth'
             });
-        };
+        }, []);
 
-        scrollToTop();
-    }, [location.pathname]);
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
 
     return (
         <div className='container py-2'>
-            <h2>Послуги, які ми надаєм</h2>
+            <h1>Послуги, які ми надаєм</h1>
             <div className="container bg-white p-2 rounded products">
                 <div className='grid-container'>
                     <div className='grid-item'>
