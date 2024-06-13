@@ -9,7 +9,7 @@ const SignUp = () => {
 
     const responseMessage = (response) => {
         console.log(response);
-        navigate('/Index1');
+        navigate('/Main');
     };
     const errorMessage = (error) => {
         console.log(error);
@@ -29,8 +29,8 @@ const SignUp = () => {
 
     const handleFacebookLogin = () => {
     //     // Логика авторизации через Facebook
-    //     // После успешной авторизации, переходим на страницу Index1.jsx
-    //     navigate('/Index1');
+    //     // После успешной авторизации, переходим на страницу Main.jsx
+    //     navigate('/Main');
     };
 
     const handleGoBack = () => {
@@ -54,7 +54,7 @@ const SignUp = () => {
                             {/*    /!*Авторизация через Facebook*!/*/}
                             {/*</button>*/}
                         </div>
-                        <Link to='/login1' className="mb-3">
+                        <Link to='/main' className="mb-3">
                             <h4>або зареєструйся на сайті компанії тут</h4>
                         </Link>
                         <button className="btn btn-primary font-size-increase" onClick={handleGoBack}>

@@ -100,7 +100,8 @@ https://joegasewicz.github.io/react-google-oauth2.0/
 
 https://blog.logrocket.com/guide-adding-google-login-react-app/
 
-https://www.baeldung.com/spring-boot-react-crudhttps://blog.logrocket.com/building-react-modal-module-with-react-router/
+https://www.baeldung.com/spring-boot-react-crud 
+https://blog.logrocket.com/building-react-modal-module-with-react-router/
 
 (Публикация на Heroku. Spring Boot Rest)[https://www.youtube.com/watch?v=q7e4A9pfNrk]
 

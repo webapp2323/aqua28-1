@@ -28,6 +28,8 @@ import { Sertif } from './pages/Sertif';
 import {Program1} from "./pages/Program1";
 
 import {Index1} from "./pages/Index1";
+import {Main} from "./components/Main/Main";
+
 import {SignUp} from "./pages/SignUp";
 import {Loginpage1} from "./pages/Loginpage1";
 import {Registration} from "./pages/Registration";
@@ -45,6 +47,8 @@ const router = createBrowserRouter(
             <Route path="sertif" element={<Sertif />} />
             <Route path="program1" element={<Program1 />} />
             <Route path="index1" element={<Index1/>} />
+            <Route path="main" element={<Main/>} />
+
             <Route path="signUp" element={<SignUp/>} />
 
 
