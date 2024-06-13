@@ -3,14 +3,14 @@ import React, {useEffect} from "react";
 const Program1 = () => {
     useEffect(() => {
         window.scrollTo({
-            top: 355,
+            top: 400,
             behavior: 'smooth'
         });
     }, []);
     return (
         <div>
             <ul>
-            <h2>Вигідна цінова політика через програму лояльності "Вода на Рівні":</h2>
+            <h1>Вигідна цінова політика через програму лояльності "Вода на Рівні":</h1>
         </ul>
             <div style={{ marginLeft: '20px' }}>
                 <table>
