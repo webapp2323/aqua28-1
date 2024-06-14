@@ -9,7 +9,7 @@ const Registration = () => {
 
     useEffect(() => {
         window.scrollTo({
-            top: 450,
+            top: 600,
             behavior: 'smooth'
         });
     }, []);
