@@ -1,23 +1,29 @@
 import React, {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 
 const Program1 = () => {
     useEffect(() => {
         window.scrollTo({
-            top: 400,
+            top: 600,
             behavior: 'smooth'
         });
     }, []);
+
+    const navigate = useNavigate();
+    const handleGoBack = () => {
+        navigate(-1);
+    };
     return (
         <div>
             <ul>
-            <h1>Вигідна цінова політика через програму лояльності "Вода на Рівні":</h1>
-        </ul>
-            <div style={{ marginLeft: '20px' }}>
+                <h1>Вигідна цінова політика через програму лояльності "Вода на Рівні":</h1>
+            </ul>
+            <div style={{marginLeft: '20px'}}>
                 <table>
                     <thead>
                     <tr>
                         <th style={{textAlign: 'center'}}>Рівень</th>
-                        <th style={{textAlign: 'center'}}>Вимога щодо замовлення кількості води на місяць</th>
+                        <th style={{textAlign: 'center'}}>Умови щодо замовлення кількості води на місяць</th>
                         <th style={{textAlign: 'center'}}>Переваги</th>
                     </tr>
                     </thead>
@@ -25,7 +31,7 @@ const Program1 = () => {
                     <tr>
                         <td>Бронзовий</td>
                         <td style={{textAlign: 'center'}}>50 літрів води на місяць</td>
-                        <td >5% знижка на кожне замовлення наступного місяця</td>
+                        <td>5% знижка на кожне замовлення наступного місяця</td>
                     </tr>
                     <tr>
                         <td>Срібний</td>
@@ -69,8 +75,11 @@ const Program1 = () => {
                     </ul>
                 </p>
             </h3>
+            <button className="btn btn-primary font-size-increase" onClick={handleGoBack}>
+                Повернутись назад
+            </button>
         </div>
     );
 };
 
-export { Program1 };
+export {Program1};

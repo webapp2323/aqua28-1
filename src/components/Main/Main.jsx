@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {SimpleModal} from "../SimpleModal/SimpleModal";
 import "./Main.css";
+import {useNavigate} from "react-router-dom";
 
 export const Main = () => {
   useEffect(() => {
@@ -15,7 +16,10 @@ export const Main = () => {
   const openModal = () => {
     setModalInfoOpen(true);
   };
-
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
   return (
       <div className="col-auto ">
         <h1>Замов доставку питної води натиснувши <add style={{color: 'grey'}}>Add</add></h1>
@@ -39,7 +43,7 @@ export const Main = () => {
           <a className="nav-link" href="#" id="deleteButton">Видалити виділене замовлення</a>
             </div>
             <div className="nav-item">
-              <a className="nav-link" href="/signUp">Повернутись на сторінку реєстрації</a>
+              <a className="nav-link" href="/program1">Діючі знижки</a>
             </div>
           </div>
           <span className="navbar-text">
@@ -69,6 +73,9 @@ export const Main = () => {
           <nav aria-label="Page navigation">
             <ul id="pages" className="pagination"></ul>
           </nav>
+          <button className="btn btn-primary font-size-increase" onClick={handleGoBack}>
+            Повернутись назад
+          </button>
         </div>
 
         <SimpleModal
@@ -142,6 +149,7 @@ export const Main = () => {
           </div>
         </SimpleModal>
       </div>
+
   );
 };
 
