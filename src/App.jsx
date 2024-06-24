@@ -3,7 +3,6 @@ import {
     Navigate,
     createBrowserRouter,
     createRoutesFromElements,
-    NavLink,
     RouterProvider,
 } from 'react-router-dom';
 
@@ -25,34 +24,27 @@ import Promo from './components/promo/promo';
 import { Services } from './pages/Services';
 import { Cartpage } from './pages/Cartpage';
 import { Sertif } from './pages/Sertif';
-import {Program1} from "./pages/Program1";
-
-import {Index1} from "./pages/Index1";
-import {Main} from "./components/Main/Main";
-
-import {SignUp} from "./pages/SignUp";
-import {Loginpage1} from "./pages/Loginpage1";
-import {Registration} from "./pages/Registration";
+import { Program1 } from "./pages/Program1";
+import { Index1 } from "./pages/Index1";
+import { Main } from "./components/Main/Main";
+import { SignUp } from "./pages/SignUp";
+import { Loginpage1 } from "./pages/Loginpage1";
+import { Registration } from "./pages/Registration";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Layout />}>
             <Route index element={<Homepage />} />
-            <Route path="navlink" element={<NavLink />} />
+            <Route path="navlink" element={<Navigate to="/" />} />
             <Route path="cartpage" element={<Cartpage />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
-
-            <Route path="services" element={<Services />}/>
+            <Route path="services" element={<Services />} />
             <Route path="sertif" element={<Sertif />} />
             <Route path="program1" element={<Program1 />} />
-            <Route path="index1" element={<Index1/>} />
-            <Route path="main" element={<Main/>} />
-
-            <Route path="signUp" element={<SignUp/>} />
-
-
-
+            <Route path="index1" element={<Index1 />} />
+            <Route path="main" element={<Main />} />
+            <Route path="signUp" element={<SignUp />} />
             <Route path="assistance" element={<Assistance />} />
             <Route path="posts" element={<Blogpage />} loader={blogLoader} />
             <Route path="posts/:id" element={<Singlepage />} loader={postLoader} />

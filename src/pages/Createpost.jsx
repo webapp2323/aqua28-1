@@ -1,16 +1,51 @@
 import { useAuth } from '../hook/useAuth';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Createpost = () => {
-     const {signout} = useAuth();
-     const navigate = useNavigate();
+    const { user } = useAuth();
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const title = form.title.value;
+        const content = form.content.value;
+
+        try {
+            const response = await fetch('/api/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+                },
+                body: JSON.stringify({ title, content })
+            });
+            if (response.ok) {
+                navigate('/posts');
+            } else {
+                throw new Error('Failed to create post');
+            }
+        } catch (error) {
+            console.error('Create post error', error);
+        }
+    };
 
     return (
         <div>
             <h1>Create a post</h1>
-            <button onClick={() => signout(() => navigate('/', {replace: true}))}>Log Out</button>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Title: <input name="title" type="text" />
+                </label>
+                <br />
+                <label>
+                    Content: <textarea name="content"></textarea>
+                </label>
+                <br />
+                <button type="submit">Create</button>
+            </form>
         </div>
-    )
-}
+    );
+};
 
-export {Createpost}
+export { Createpost };

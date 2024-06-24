@@ -1,4 +1,8 @@
+
+console.log("Script loaded");
 $(document).ready(function () {
+  console.log("Document ready");
+
   $.getJSON('/account', function (data) {
     $('#login').text(data.email);
     $('#avatar').attr("src", data.pictureUrl);
@@ -53,7 +57,7 @@ function assignButtons() {
     }
 
     if ($("#deliveryDate").val() != "" && $("#address").val() != ""
-            && $("#phone").val() != "" && $("#quantity").val() != "") {
+        && $("#phone").val() != "" && $("#quantity").val() != "") {
       const task = {
         date: $("#deliveryDate").val(),
         address: $("#address").val(),
@@ -62,19 +66,25 @@ function assignButtons() {
         phone: $("#phone").val()
       };
 
+      console.log("Sending task:", task);
+
       $.ajax({
         type: "POST",
-        url: "/addTask",
+        url: "/api/tasks",
         contentType: "application/json",
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
         data: JSON.stringify(task),
         success: function () {
+          console.log("Task added successfully");
           $("#messageSpan").text("Added successfully");
-          loadData();
+          loadData(0);
         },
         error: function (xhr, status, error) {
+          console.log('Error occurred while adding task:', error);
           $("#messageSpan").text("Error occurred!");
-          $("#messageSpan").text("Result: " + status + " " + error + " " +
-              xhr.status + " ");
+          $("#messageSpan").text("Result: " + status + " " + error + " " + xhr.status + " ");
         },
       });
     }
@@ -87,8 +97,22 @@ function assignButtons() {
       idList['toDelete'].push($(this).val());
     });
 
-    $.post("/deleteTasks", idList, function (data, status) {
-      window.location = "/";
+    console.log("Deleting tasks with ids:", idList);
+
+    $.ajax({
+      type: "POST",
+      url: "/api/tasks/delete",
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      data: JSON.stringify(idList),
+      success: function () {
+        console.log("Tasks deleted successfully");
+        window.location = "/";
+      },
+      error: function (xhr, status, error) {
+        console.log('Error occurred while deleting tasks:', error);
+      }
     });
   });
 }
@@ -96,17 +120,27 @@ function assignButtons() {
 function loadPages() {
   $("#pages").empty();
 
-  $.getJSON('/count', function(data) {
-    var pageCount = (data.count / data.pageSize) +
-        (data.count % data.pageSize > 0 ? 1 : 0);
-    var i;
+  console.log("Loading pages count");
 
-    for (i = 1; i <= pageCount; i++) {
-      $('#pages').append(
-          $('<li>').attr('class', 'page-item').append(
-              $('<a>').attr('class', 'page-link').attr('id', i - 1)
-              .append('Page ' + i))
-      );
+  $.ajax({
+    url: '/api/tasks/count',
+    type: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function(data) {
+      console.log("Pages count loaded:", data);
+      var pageCount = Math.ceil(data.count / data.pageSize);
+      for (var i = 1; i <= pageCount; i++) {
+        $('#pages').append(
+            $('<li>').attr('class', 'page-item').append(
+                $('<a>').attr('class', 'page-link').attr('id', i - 1).text('Page ' + i)
+            )
+        );
+      }
+    },
+    error: function (xhr, status, error) {
+      console.log('Error occurred while loading pages count:', error);
     }
   });
 
@@ -118,26 +152,39 @@ function loadPages() {
 function loadData(page) {
   $("#data > tbody").empty();
 
-  $.getJSON('/tasks?page=' + page, function(data) {
-    var i;
+  console.log("Loading data for page:", page);
 
-    for (i = 0; i < data.length; i++) {
-      $('#data > tbody:last-child').append(
-          $('<tr>')
-          .append(
-              $('<td>').append(
-                  $('<input>').attr('type', 'checkbox').attr('value',
-                      data[i].id)
-              )
-          )
-          .append($('<td>').append(data[i].date.replace('T', '  ')))
-          .append($('<td>').append(data[i].address))
-          .append($('<td>').append(data[i].phone))
-          .append($('<td>').append(data[i].quantity))
-          .append($('<td>').append(data[i].price))
-          .append($('<td>').append(data[i].taskOwner))
-          .append($('<td>').append(data[i].status))
-      );
+  $.ajax({
+    url: '/api/tasks?page=' + page,
+    type: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function(data) {
+      console.log("Data loaded for page", page, ":", data);
+      let i;
+
+      for (i = 0; i < data.length; i++) {
+        $('#data > tbody:last-child').append(
+            $('<tr>')
+                .append(
+                    $('<td>').append(
+                        $('<input>').attr('type', 'checkbox').attr('value',
+                            data[i].id)
+                    )
+                )
+                .append($('<td>').append(data[i].date.replace('T', '  ')))
+                .append($('<td>').append(data[i].address))
+                .append($('<td>').append(data[i].phone))
+                .append($('<td>').append(data[i].quantity))
+                .append($('<td>').append(data[i].price))
+                .append($('<td>').append(data[i].taskOwner))
+                .append($('<td>').append(data[i].status))
+        );
+      }
+    },
+    error: function(xhr, status, error) {
+      console.log('Error occurred while loading data:', error);
     }
   });
 }

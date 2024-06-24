@@ -1,22 +1,77 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const AuthContext = createContext(null);
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
-    const signin = (newUser, cb) => {
-        setUser(newUser);
-        cb();
-    }
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setUser({ token });
+        }
+    }, []);
+
+    const signin = async (email, password, cb) => {
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ email, password })
+            });
+            if (response.ok) {
+                const data = await response.json();
+                const token = data.token;
+                localStorage.setItem('token', token);
+                setUser({ token });
+                cb();
+            } else {
+                throw new Error('Invalid credentials');
+            }
+        } catch (error) {
+            console.error('Sign-in error:', error);
+        }
+    };
+
+    const oauthSignin = async (token, cb) => {
+        console.log('OAuth sign-in with token:', token);
+        try {
+            const response = await fetch('/api/auth/oauth2/success', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Google-Token': token
+                }
+            });
+            console.log('OAuth sign-in response:', response);
+            if (response.ok) {
+                const data = await response.json();
+                const jwtToken = data.token;
+                console.log('OAuth sign-in successful, JWT token received:', jwtToken);
+                localStorage.setItem('token', jwtToken);
+                setUser({ token: jwtToken });
+                cb();
+            } else {
+                console.error('OAuth sign-in failed, status:', response.status);
+                throw new Error('OAuth login failed');
+            }
+        } catch (error) {
+            console.error('OAuth login error:', error);
+        }
+    };
+
     const signout = (cb) => {
+        console.log('Signing out...');
+        localStorage.removeItem('token');
         setUser(null);
         cb();
-    }
+    };
 
-    const value = {user, signin, signout};
+    const value = { user, signin, oauthSignin, signout };
 
     return <AuthContext.Provider value={value}>
         {children}
-    </AuthContext.Provider>
-}
+    </AuthContext.Provider>;
+};

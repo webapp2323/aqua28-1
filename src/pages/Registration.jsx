@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hook/useAuth';
 
@@ -18,8 +18,21 @@ const Registration = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const { login, age, password, email, gender } = Object.fromEntries(formData);
+        const accountDTO = {
+            email: email,
+            password: password,
+            name: login,
+            pictureUrl: '', // You can set this as per your requirement
+            role: 'USER' // or another role if you have different roles
+        };
         try {
-            await register(login, age, password, email, gender);
+            await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(accountDTO),
+            });
             navigate('/login');
         } catch (error) {
             console.error(error);
@@ -90,4 +103,4 @@ const Registration = () => {
     );
 };
 
-export {Registration};
+export { Registration };
