@@ -54,7 +54,8 @@ export const Main = () => {
       return;
     }
 
-    fetch(`/api/tasks?page=${page}`, {
+    const url = `http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/tasks?page=${page}`;
+    fetch(url, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${user.token}`,
@@ -78,7 +79,8 @@ export const Main = () => {
   };
 
   const loadProducts = () => {
-    fetch(`/api/products`, {
+    const url = 'http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/products';
+    fetch(url, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${user.token}`,
@@ -151,7 +153,7 @@ export const Main = () => {
       return;
     }
 
-    fetch('/api/tasks', {
+    fetch('http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/tasks', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${user.token}`,
@@ -179,7 +181,7 @@ export const Main = () => {
 
     console.log('Selected task IDs for deletion:', selectedTasks); // Логирование на фронтенде
 
-    fetch('/api/tasks/delete', {
+    fetch('http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/tasks/delete', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${user.token}`,

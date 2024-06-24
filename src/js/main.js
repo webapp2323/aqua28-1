@@ -70,7 +70,7 @@ function assignButtons() {
 
       $.ajax({
         type: "POST",
-        url: "/api/tasks",
+        url: "http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/tasks",
         contentType: "application/json",
         headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -101,7 +101,7 @@ function assignButtons() {
 
     $.ajax({
       type: "POST",
-      url: "/api/tasks/delete",
+      url: "http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/tasks/delete",
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
@@ -123,7 +123,7 @@ function loadPages() {
   console.log("Loading pages count");
 
   $.ajax({
-    url: '/api/tasks/count',
+    url: 'http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/tasks/count',
     type: 'GET',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -144,6 +144,7 @@ function loadPages() {
     }
   });
 
+
   $("#pages").on("click", ".page-link", function(event) {
     loadData(event.target.id);
   });
@@ -155,7 +156,7 @@ function loadData(page) {
   console.log("Loading data for page:", page);
 
   $.ajax({
-    url: '/api/tasks?page=' + page,
+    url: 'http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/tasks?page=' + page,
     type: 'GET',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -169,8 +170,7 @@ function loadData(page) {
             $('<tr>')
                 .append(
                     $('<td>').append(
-                        $('<input>').attr('type', 'checkbox').attr('value',
-                            data[i].id)
+                        $('<input>').attr('type', 'checkbox').attr('value', data[i].id)
                     )
                 )
                 .append($('<td>').append(data[i].date.replace('T', '  ')))

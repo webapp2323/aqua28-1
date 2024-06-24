@@ -26,7 +26,7 @@ const Registration = () => {
             role: 'USER' // or another role if you have different roles
         };
         try {
-            await fetch('/api/auth/register', {
+            await fetch('http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

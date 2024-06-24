@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
 
     const signin = async (email, password, cb) => {
         try {
-            const response = await fetch('/api/auth/login', {
+            const response = await fetch('http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -35,10 +35,12 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+
     const oauthSignin = async (token, cb) => {
-        console.log('OAuth sign-in with token:', token);
+        const url = 'http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/auth/oauth2/success';
+        console.log(`OAuth sign-in with URL: ${url} and token: ${token}`);
         try {
-            const response = await fetch('/api/auth/oauth2/success', {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -61,6 +63,7 @@ export const AuthProvider = ({ children }) => {
             console.error('OAuth login error:', error);
         }
     };
+
 
     const signout = (cb) => {
         console.log('Signing out...');

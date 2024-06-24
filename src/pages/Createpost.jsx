@@ -11,8 +11,9 @@ const Createpost = () => {
         const title = form.title.value;
         const content = form.content.value;
 
+        const url = 'http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/posts';
         try {
-            const response = await fetch('/api/posts', {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,6 +30,7 @@ const Createpost = () => {
             console.error('Create post error', error);
         }
     };
+
 
     return (
         <div>
