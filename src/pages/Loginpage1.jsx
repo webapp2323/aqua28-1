@@ -20,7 +20,7 @@ const Loginpage1 = () => {
         const { j_login, j_password } = Object.fromEntries(formData);
         try {
             await signin(j_login, j_password, () => {
-                const redirectPath = location.state?.from?.pathname || '/';
+                const redirectPath = location.state?.from?.pathname || '/main';
                 navigate(redirectPath);
             });
         } catch (error) {

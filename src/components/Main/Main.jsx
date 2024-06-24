@@ -163,7 +163,7 @@ export const Main = () => {
       body: JSON.stringify(newTask),
     }).then((response) => {
       if (response.ok) {
-        window.location.href = "/";
+        window.location.href = "/main";
       } else {
         setErrors([response.statusText]);
       }
@@ -179,7 +179,7 @@ export const Main = () => {
       return;
     }
 
-    console.log('Selected task IDs for deletion:', selectedTasks); // Логирование на фронтенде
+    console.log('Selected task IDs for deletion:', selectedTasks);
 
     fetch('http://water-backend-env.eba-iskuigs5.eu-north-1.elasticbeanstalk.com/api/tasks/delete', {
       method: 'POST',

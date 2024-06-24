@@ -33,7 +33,7 @@ const Registration = () => {
                 },
                 body: JSON.stringify(accountDTO),
             });
-            navigate('/login');
+            navigate('/login1');
         } catch (error) {
             console.error(error);
             // Display error message to the user
